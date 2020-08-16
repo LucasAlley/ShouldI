@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@tailwindcss/ui": "^0.5.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -27,7 +28,7 @@
   "scripts": {
     "start": "npm run tailwind:css && react-scripts start",
     "tailwind:css": "tailwind build src/styles/index.css -c tailwind.config.js -o src/index.css",
-    "build": "npm run tailwind:css && react-scripts build",
+    "build": "NODE_ENV=production npm run tailwind:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
