@@ -1,53 +1,61 @@
+import Axios from "axios";
+import randomString from "randomstring";
 import React from "react";
 import { Nav } from "./components/Nav/Nav";
-import { Card } from "./components/UI/Card";
+import { Create } from "./components/Thread/Create";
+import { Threads } from "./components/Thread/Threads";
+import { LoadingCard } from "./components/ui/Card";
+import { UserContext } from "./context/UserContext";
+import { useBoolean } from "./hooks/useBoolean";
+import { useStatus } from "./hooks/useStatus";
 import "./styles/index.css";
-
 function App() {
+  const [openModal, { on: open, off: close }] = useBoolean(false);
+  const [status, { resolved }] = useStatus("LOADING");
+  const [threads, setThreads] = React.useState([]);
+
+  const [tempID, setTempID] = React.useState("");
+  React.useEffect(() => {
+    const getInitial = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      };
+      const {
+        data: { threads },
+      } = await Axios.get("http://localhost:1337/api/thread", config);
+      setTempID(randomString.generate(7));
+      setThreads(threads);
+      resolved();
+    };
+    getInitial();
+  }, [resolved, setThreads]);
+
   return (
-    <div className="App flex flex-col items-center bg-gray-50">
-      <Nav />
-      <div className="flex flex-col w-1/2 border-l-2 border-gray-400 mt-12">
-        <p className="text-gray-500 italic text-sm mb-2 ml-2">Thread #122323</p>
-        <Card
-          text
-          margin="mb-4"
-          className="h-4 w-4 border-t-2 border-gray-400"
-        />
-        <div className="flex flex-col">
-          <Card
-            text
-            margin="mb-4"
-            className="h-4 w-16 border-t-2 border-gray-400"
-          />
-          <Card
-            reply
-            margin="mb-4"
-            className="h-4 w-16 border-t-2 border-gray-400"
-          />
-          <Card text className="h-4 w-16 border-t-2 border-gray-400" />
-        </div>
-      </div>
-      <div className="flex flex-col w-1/2 border-l-2 border-gray-400 mt-12">
-        <p className="text-gray-500 italic text-sm mb-2 ml-2">Thread #122323</p>
-        <Card
-          text
-          margin="mb-4"
-          className="h-4 w-4 border-t-2 border-gray-400"
-        />
-        <div className="flex flex-col">
-          <Card
-            text
-            margin="mb-4"
-            className="h-4 w-16 border-t-2 border-gray-400"
-          />
-          <Card
-            reply
-            margin="mb-4"
-            className="h-4 w-16 border-t-2 border-gray-400"
-          />
-          <Card text className="h-4 w-16 border-t-2 border-gray-400" />
-        </div>
+    <div className="relative flex flex-col items-center bg-gray-50 min-h-screen">
+      <Nav open={openModal} onClose={close} openFunc={open} />
+      {status === "LOADING" && <LoadingCard />}
+      <UserContext.Provider value={{ tempID, setThreads, threads }}>
+        <Create openModal={openModal} close={close} />
+        {status === "RESOLVED" && (
+          <Threads threads={threads} setThreads={setThreads} />
+        )}
+      </UserContext.Provider>
+
+      <div className="fixed left-0 bottom-0">
+        <a
+          className="cursor-pointer"
+          href="https://github.com/LucasAlley/ShouldI"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ion-icon
+            style={{ fontSize: "38px", marginLeft: "10px", zIndex: "10" }}
+            name="logo-github"
+          ></ion-icon>
+        </a>
       </div>
     </div>
   );

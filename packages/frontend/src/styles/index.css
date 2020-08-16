@@ -3,3 +3,26 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.bar {
+  transition: all 0.3s;
+}
+.bar-hide {
+  bottom: -150px;
+}
+.bar-show {
+  bottom: 0px;
+}
+.nav-hidden {
+  top: -200px;
+}
+.nav-show {
+  top: 0px;
+}
+
+.reply-container-open {
+  height: 0px;
+}
+.reply-container {
+  transition: all 0.9s;
+}
