@@ -4,7 +4,7 @@ import React from "react";
 import { Nav } from "./components/Nav/Nav";
 import { Create } from "./components/Thread/Create";
 import { Threads } from "./components/Thread/Threads";
-import { LoadingCard } from "./components/ui/Card";
+import { LoadingCard } from "./components/UI/Card";
 import { UserContext } from "./context/UserContext";
 import { useBoolean } from "./hooks/useBoolean";
 import { useStatus } from "./hooks/useStatus";
