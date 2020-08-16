@@ -25,7 +25,7 @@ function App() {
       };
       const {
         data: { threads },
-      } = await Axios.get("https://www.api.shouldi.so/api/thread", config);
+      } = await Axios.get("https://api.shouldi.so/api/thread", config);
       setTempID(randomString.generate(7));
       setThreads(threads);
       resolved();

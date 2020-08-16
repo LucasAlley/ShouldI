@@ -26,7 +26,7 @@ export const Replies = ({
       const {
         data: { replies },
       } = await axios.post(
-        "https://www.api.shouldi.so/api/reply",
+        "https://api.shouldi.so/api/reply",
         {
           threadId,
         },
