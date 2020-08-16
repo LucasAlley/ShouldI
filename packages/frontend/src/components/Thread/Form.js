@@ -12,7 +12,10 @@ export const Form = ({ close }) => {
     loading();
     const {
       data: { thread },
-    } = await Axios.post("http://localhost:1337/api/thread/create", question);
+    } = await Axios.post(
+      "https://www.api.shouldi.so/api/thread/create",
+      question
+    );
     setThreads([thread, ...threads]);
     resolved();
   };

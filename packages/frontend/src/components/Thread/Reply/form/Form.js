@@ -21,7 +21,7 @@ export const Form = ({ info, handleDone }) => {
     let {
       data: { newReply },
     } = await Axios.post(
-      "http://localhost:1337/api/reply/create",
+      "https://www.api.shouldi.so/api/reply/create",
       { ...reply, thread: info._id, createdBy: tempID },
       config
     );
