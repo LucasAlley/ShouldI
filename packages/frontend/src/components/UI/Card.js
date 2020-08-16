@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-function Card({ thread, children }) {
+export function Card({ thread, children }) {
   return (
     <div className={`w-full flex items-center mb-4`}>
       <div
