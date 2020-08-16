@@ -2,7 +2,7 @@ import axios from "axios";
 import clsx from "clsx";
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { EmptyCard, ReplyCard } from "../ui/Card";
+import { EmptyCard, ReplyCard } from "../UI/Card";
 import { Form } from "./Reply/form/Form";
 export const Replies = ({
   open,

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 import { useScroll } from "../../hooks/useScroll";
-import { Bar } from "../ui/Bar";
+import { Bar } from "../UI/Bar";
 
 export const Nav = ({ openFunc }) => {
   const { hidden } = useScroll();

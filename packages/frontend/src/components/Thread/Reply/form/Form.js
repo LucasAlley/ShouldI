@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import * as Yup from "yup";
 import { UserContext } from "../../../../context/UserContext";
 import { useStatus } from "../../../../hooks/useStatus";
-import Spinner from "../../../ui/Spinner";
+import Spinner from "../../../UI/Spinner";
 
 export const Form = ({ info, handleDone }) => {
   const [status, { loading, resolved }] = useStatus("IDLE");

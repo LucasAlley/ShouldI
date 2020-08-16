@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../ui/Modal";
+import Modal from "../UI/Modal";
 import { Form } from "./Form";
 export const Create = ({ openModal, close }) => {
   return (

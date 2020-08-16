@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { ThreadCard } from "../ui/Card";
+import { ThreadCard } from "../UI/Card";
 import { Replies } from "./Replies";
 export const Thread = ({ info }) => {
   const [openReplies, setOpenReplies] = useState(false);
