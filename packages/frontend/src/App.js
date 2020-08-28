@@ -16,7 +16,7 @@ function App() {
 
   const [tempID, setTempID] = React.useState("");
   React.useEffect(() => {
-    const getInitial = async () => {
+    async function getInitial() {
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ function App() {
       setTempID(randomString.generate(7));
       setThreads(threads);
       resolved();
-    };
+    }
     getInitial();
   }, [resolved, setThreads]);
 
