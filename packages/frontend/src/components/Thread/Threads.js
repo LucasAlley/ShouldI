@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { Thread } from "./Thread";
-export const Threads = ({ setThreads, threads }) => {
+export const Threads = ({ threads }) => {
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
@@ -9,7 +9,7 @@ export const Threads = ({ setThreads, threads }) => {
       scale: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.1,
+        staggerChildren: 0.3,
       },
     },
   };
