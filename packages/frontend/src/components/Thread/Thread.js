@@ -43,13 +43,3 @@ export const Thread = ({ info }) => {
     </motion.div>
   );
 };
-/*<p className="text-xl text-gray-800">
-              <span className="bg-blue-700 text-white rounded-full text-sm py-2 px-2 shadow mr-2">
-                @1232321{" "}
-              </span>{" "}
-              Great idea{" "}
-            </p>*/
-/**
- *
- *
- */
