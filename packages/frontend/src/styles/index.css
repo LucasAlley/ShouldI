@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 .bar {
-  transition: all 0.3s;
+  transition: 0.3s;
 }
 .bar-hide {
   bottom: -150px;
@@ -25,5 +25,5 @@
   height: 0px;
 }
 .reply-container {
-  transition: all 0.9s;
+  transition: 0.9s;
 }
